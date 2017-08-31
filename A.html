@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script type="text/javascript">
+            var timerStart = Date.now();
+            console.log('timerStart:' + timerStart)
+        </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Memphis Taxis</title>
+
+  <style>
+    .equal {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+    }
+  </style>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+  <!-- Page Content -->
+  <div class="container top-margin">
+
+    <div class="row">
+      <div class="col-lg-8 col-md-12 text-center">
+        <img src="img/taxi.png" align="center" width="25%" />
+        <h1 id="title">Memphis Taxis</h1>
+      </div>
+      <div class="col-lg-4 col-md-12 text-center">
+        <p>This page contains information about taxi and cab companies in Memphis, Tennessee.
+        </p>
+
+        <p>Not endorsed by any of the companies listed, or the city of Memphis.</p>
+        <div id="memphistaxis7_default">
+          <p><a href="http://www.matatransit.com/">Memphis Transportation</a></p>
+        </div>
+
+      </div>
+    </div>
+    <!-- /.row -->
+    <div class="row top-margin companies">
+      <div class="col-lg-4 col-md-12">
+        <div class="company">
+          <div id="memphistaxis1_default">
+            <a href="http://www.ridememphis.com/">
+              <h4>Memphis Taxi</h4>
+            </a>
+            <!-- Everything between the  -->
+            <p>Our drivers are the most professional drivers in the industry. Our drivers
+              are licensed and required to successfully complete a formal training
+              program, which includes training in defensive driving and safety.</p>
+          </div>
+        </div>
+      </div>
+    <div class="row companies">
+      <div class="col-lg-4 col-md-12">
+        <div class="company">
+          <div id="memphistaxis4_default">
+            <a href="http://orangecab1.blogspot.com/">
+              <h4>Orange Cab</h4>
+            </a>
+            <p>Memphis' Orange Cab has initiated a better service line will be added
+              soon. All the customer will get a new cab service in Memphis. The customer
+              can pre book their cab needed anywhere to go. Like From Downtown to
+              Graceland is just like 25 dollars only.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <div class="company">
+          <div id="memphistaxis5_default">
+            <a href="http://www.yelp.com/biz/metro-cab-and-advantage-cab-memphis">
+              <h4>Metro Cab and Advantage Cab</h4>
+            </a>
+            <p>This is a local shuttle service located at 2240 Deadrick Ave Memphis,
+              TN 38114.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <div class="company">
+          <div id="memphistaxis6_default">
+            <a href="http://premierofmemphis.com/">
+              <h4>Premier of Memphis</h4>
+            </a>
+            <p>Premier Transportation Services, Yellow Cab and Checker Cab are located
+              at the south end of downtown Memphis where we work to be your preferred
+              passenger ground transportation provider. Our goal is to efficiently
+              transport our passengers in a safe, polite and timely manner at a fair
+              price.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+      <div id="footer" class="col-lg-12">
+        <div id="memphistaxis8_default">
+          <button id="8" type="submit" name="Register">Register</button>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+
+  </div>
+  <!-- /.container -->
+
+  <!-- jQuery Version 1.11.1 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+  <script>
+  var timeLoaded = Date.now()
+    $(document).ready(function() {
+                 timeLoaded =  Date.now()-timerStart;
+             });
+ 
+
+ var numClicks = 0;
+  $("#8").on("click", function(d) {
+    numClicks += 1;
+    var timeToClick = Date.now() - timeLoaded;
+  console.log("clicked")
+  console.log("Time to click" + timeToClick)
+  })
+  console.log('num of clicks:' + numClicks)
+   </script>
+
+</body>
+
+</html>

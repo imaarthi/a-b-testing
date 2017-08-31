@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        var locations = ["file://A.html", "file://B.html"];
+        var len = locations.length;
+        var iframe = $('#frame');
+        var i = 0;
+        setInterval(function () {
+          console.log('changing')
+            iframe.attr('src', locations[++i % len]);
+        }, 30000);
+      });
+    </script>
+  </head>
+  <body>
+    <iframe id="frame" width="900" height="900"></iframe>
+  </body>
+</html>
