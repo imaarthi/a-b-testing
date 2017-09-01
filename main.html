@@ -1,20 +1,31 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-      $(document).ready(function(){
-        var locations = ["file://A.html", "file://B.html"];
-        var len = locations.length;
-        var iframe = $('#frame');
-        var i = 0;
-        setInterval(function () {
-          console.log('changing')
-            iframe.attr('src', locations[++i % len]);
-        }, 30000);
-      });
-    </script>
   </head>
+
   <body>
-    <iframe id="frame" width="900" height="900"></iframe>
+
+  <div id="iframe-container">
+    <iframe id="frame" width="900" height="900" src="A.html"></iframe>
+    </div>
+     <script>
+     
+       // Randomly select A/B version 
+       // each with probability 0.5.
+        var show = Math.random() % 100;
+        var url = '';
+        if (show < 0.5) {
+          url = "A.html"
+        } else{
+          url = "B.html"
+        }
+
+        console.log('URL loaded:' + url)
+
+        $('#frame').removeAttr("src")
+        $('#frame').attr("src", url)
+    </script>
+
   </body>
+
 </html>
