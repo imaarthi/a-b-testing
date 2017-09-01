@@ -77,17 +77,6 @@
 
     </div>
     <!-- /.row -->
-    
-    <!-- /.row -->
-
-    <div class="row">
-      <div id="footer" class="col-lg-12">
-        <div id="memphistaxis8_default">
-          <button id="8" type="submit" name="Register">Register</button>
-        </div>
-      </div>
-    </div>
-    <!-- /.row -->
 
 
   </div>
@@ -126,6 +115,19 @@
         localStorage.setItem('numClicksMemphis', numClicksMemphis);
         console.log('num of clicks on Memphis:' + numClicksMemphis)
         document.location.href = "https://oncabs.com/booking/memphis"
+        var dataObj = { 'numClicksMemphis': localStorage.getItem('numClicksMemphis')};
+         $.ajax({
+            url: '/data',
+            data: JSON.stringify(dataObj),
+            type: 'POST',
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        }
+        });
         
       })
       

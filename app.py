@@ -13,3 +13,6 @@ app.config['DEBUG'] = True
 def admin():
 	return "OK"
 
+@app.route('/data')
+def admin():
+	return "OK"
