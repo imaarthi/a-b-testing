@@ -1,6 +1,7 @@
-from flask import Flask, redirect
+from flask import Flask, redirect, render_template
 from flask import request
 import sys
+import random
 import json
 import csv
 
@@ -14,14 +15,24 @@ app.config['DEBUG'] = True
 
 # Simple python Flask server
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def root():
-	redirect('main.html')
+	probability = random.uniform(0, 1)
+	if probability < 0.5:
+		return render_template('A.html')
+	else:
+		return render_template('B.html')
 
-@app.route('/data')
+
+
+@app.route('/data', methods=['GET', 'POST'])
 def get_data():
-
+	return request.data
 	data = json.loads(request.data)
 	n_clicks = data.get('numClicksMemphis')
-
 	writer.writerow(n_clicks)
+	return "Ok"
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
