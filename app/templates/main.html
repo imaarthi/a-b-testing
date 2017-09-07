@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+  <div id="iframe-container">
+    <iframe id="frame" width="900" height="900" src="A.html"></iframe>
+  </div>
+  
+     <script>
+     
+       // Randomly select A/B version 
+       // each with probability 0.5.
+        var show = Math.random() % 100;
+        var url = '';
+        if (show < 0.5) {
+          url = "A.html"
+        } else{
+          url = "B.html"
+        }
+
+        console.log('URL loaded:' + url)
+
+        $('#frame').removeAttr("src")
+        $('#frame').attr("src", url)
+
+        $( window ).onclose(function() {
+          alert( "Handler for .unload() called." );
+        });
+    </script>
+
+  </body>
+
+</html>
