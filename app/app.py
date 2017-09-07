@@ -4,6 +4,8 @@ import csv
 import datetime
 
 from flask import Flask, render_template
+from flask_flatpages import FlatPages
+from flask_frozen import Freezer
 from flask import request
 
 
@@ -16,6 +18,9 @@ with open('./ab_testing.csv', 'w') as csv_file:
 # Simple python Flask server
 app = Flask(__name__, static_url_path='/static')
 app.config['DEBUG'] = True
+app.config.from_pyfile('settings.py')
+pages = FlatPages(app)
+freezer = Freezer(app)
 
 
 # This is the main HTTP endpoint
