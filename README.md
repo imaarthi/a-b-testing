@@ -10,9 +10,34 @@ calculated based on "conversion rate".
 
 ## What does this project do?
 
-This project does simple A/B testing, of 2 websites
-and collects such metrics as "time to click" and "no of clicks".
+This project does simple A/B testing, of 2 versions of a website.
 
-These metrics could then be used to see which version 
+The metrics collected could then be used to see which version 
+among the baseline or variant 
 performed better.
+
+# Running the flask server
+
+## Running locally
+
+### Method 1:
+ export FLASK_APP=app.py
+ flask run
+
+### Method 2:
+ python app.py
+
+
+## Running on github?
+
+ TODO?
+
+## Sample Output:
+
+Creates output file of the following format.
+
+Aarthis-iMac:a-b-testing aarthi$ cat ab_testing.csv
+Version,pageLoadTime,clickTime
+B,2017-09-06 19:50:05.202000,2017-09-06 19:50:06.484000
+A,2017-09-06 19:50:08.579000,2017-09-06 19:50:09.284000
 
