@@ -3,6 +3,7 @@ from flask import request
 import sys
 import random
 import csv
+import os
 
 
 sys.dont_write_bytecode = True
@@ -41,5 +42,5 @@ def get_data():
 
 if __name__ == '__main__':
     app.debug = True
-    port = 5000
+    port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
