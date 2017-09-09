@@ -4,10 +4,11 @@ import sys
 import random
 import csv
 import os
+import datetime
 
 
 sys.dont_write_bytecode = True
-with open('ab_test.csv', 'w') as csv_file:
+with open('./ab_test.csv', 'w') as csv_file:
     writer = csv.writer(csv_file, delimiter=',')
     writer.writerow([
         'version', 'pageLoadTime', 'clickTime'])
@@ -32,12 +33,21 @@ def root():
 def get_data():
     json = request.get_json()
     version = json['version']
-    clickTime = json['clickTime']
-    pageLoadTime = json['pageLoadTime']
-    print(version, pageLoadTime, clickTime)
-    with open('ab_test.csv', 'a+') as csv_file:
+
+    # convert epoch timestamps to formatted version
+    click_time = json['clickTime'] / 1000.0
+    click_time_formatted = datetime.datetime.fromtimestamp(
+        click_time).strftime('%Y-%m-%d %H:%M:%S.%f')
+    page_load_time = json['pageLoadTime'] / 1000.0
+    page_load_time_formatted = datetime.datetime.fromtimestamp(
+        page_load_time).strftime('%Y-%m-%d %H:%M:%S.%f')
+
+    print(version, page_load_time_formatted, click_time_formatted)
+    # write to csv file
+    with open('./ab_test.csv', 'a') as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
-        writer.writerow([version, pageLoadTime, clickTime])
+        writer.writerow([
+            version, page_load_time_formatted, click_time_formatted])
     return "OK"
 
 
