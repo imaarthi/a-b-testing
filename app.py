@@ -4,10 +4,12 @@ import sys
 import random
 import csv
 
+
 sys.dont_write_bytecode = True
 with open('./ab_test.csv', 'w') as csv_file:
     writer = csv.writer(csv_file, delimiter=',')
-    writer.writerow(['version','pageLoadTime', 'clickTime'])
+    writer.writerow([
+        'version', 'pageLoadTime', 'clickTime'])
 
 
 app = Flask(__name__)
@@ -38,4 +40,6 @@ def get_data():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.debug = True
+    port = 5000
+    app.run(host=’0.0.0.0', port=port)
