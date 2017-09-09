@@ -7,7 +7,7 @@ import os
 
 
 sys.dont_write_bytecode = True
-with open('./ab_test.csv', 'w') as csv_file:
+with open('ab_test.csv', 'w') as csv_file:
     writer = csv.writer(csv_file, delimiter=',')
     writer.writerow([
         'version', 'pageLoadTime', 'clickTime'])
@@ -34,7 +34,7 @@ def get_data():
     version = json['version']
     clickTime = json['clickTime']
     pageLoadTime = json['pageLoadTime']
-    with open('./ab_test.csv', 'a') as csv_file:
+    with open('ab_test.csv', 'a+') as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
         writer.writerow([version, pageLoadTime, clickTime])
     return "OK"
