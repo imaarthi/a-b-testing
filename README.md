@@ -28,11 +28,39 @@ performed better.
  python app.py
 
 
-## Running on github?
+#Hosting on Heroku
+ In order to host this on heroku, follow the following steps.
 
- TODO?
+## Ensure heroku CLI is installed
 
-## Sample Output:
+  STEPS:
+  Run the following on iterm/terminal.
+  1. Install brew if not installed - 
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  2. Install heroku toolkit. CLI is part of toolkit. 
+  brew install heroku-toolbelt
+
+## Following are must.
+### Procfile - this is the file heroku looks in your home directory
+ It should contain the command to start your web app.
+
+ For example, if you run your web app locally as
+ 'python app.py'
+ this file should contain 
+ web: python app.py
+
+ The initial command 'web' is specific to heroku.
+ Otherwise it does not know that it should follow
+ http protocol for your app.
+
+### requirements.txt
+ Heroku looks for this in home directory.
+ Add all dependencies here.
+
+## Full details at https://devcenter.heroku.com/articles/deploying-python
+
+## Sample Output while testing locally:
 
 Creates output file of the following format.
 
