@@ -61,13 +61,17 @@
         $(document).ready(function() {
           timeLoaded =  Date.now();
           console.log('Page Load:' + timeLoaded)
+          sendData(timeLoaded, 0)
         });
 
       $("#mp").on("click", function(d) {
             // Retrieve the object from storage
             var clickTime = Date.now()
             console.log('Click Time:' + clickTime)
+            sendData(timeLoaded, clickTime)
+      })
 
+      function sendData(timeLoaded, clickTime){
             var dataObj = { 'version': 'A', 'pageLoadTime': timeLoaded , 'clickTime': clickTime };
             console.log(JSON.stringify(dataObj))
              $.ajax({
@@ -83,8 +87,7 @@
                       $(this).html("error!");
                   }
             });
-            
-      })
+      }
       
    </script>
 

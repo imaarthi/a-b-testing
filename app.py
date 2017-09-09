@@ -36,8 +36,11 @@ def get_data():
 
     # convert epoch timestamps to formatted version
     click_time = json['clickTime'] / 1000.0
-    click_time_formatted = datetime.datetime.fromtimestamp(
-        click_time).strftime('%Y-%m-%d %H:%M:%S.%f')
+    if click_time != 0:
+        click_time_formatted = datetime.datetime.fromtimestamp(
+            click_time).strftime('%Y-%m-%d %H:%M:%S.%f')
+    else:
+        click_time_formatted = click_time
     page_load_time = json['pageLoadTime'] / 1000.0
     page_load_time_formatted = datetime.datetime.fromtimestamp(
         page_load_time).strftime('%Y-%m-%d %H:%M:%S.%f')
