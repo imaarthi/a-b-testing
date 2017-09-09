@@ -11,7 +11,7 @@ with open('ab_test.csv', 'w') as csv_file:
     writer = csv.writer(csv_file, delimiter=',')
     writer.writerow([
         'version', 'pageLoadTime', 'clickTime'])
-
+print('version', 'pageLoadTime', 'clickTime')
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -34,6 +34,7 @@ def get_data():
     version = json['version']
     clickTime = json['clickTime']
     pageLoadTime = json['pageLoadTime']
+    print(version, pageLoadTime, clickTime)
     with open('ab_test.csv', 'a+') as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
         writer.writerow([version, pageLoadTime, clickTime])
