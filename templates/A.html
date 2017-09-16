@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <script type="text/javascript">      
       var timerStart = Date.now();
       console.log('Page Load:' + timerStart)
@@ -12,9 +13,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
+    <link rel="stylesheet" href="../main.css">
 
   <title>Find Taxis online</title>
 
+<!--
   <style>
     .equal {
       display: -webkit-box;
@@ -23,6 +26,7 @@
       display: flex;
     }
   </style>
+-->
 
   <!-- Bootstrap Core CSS -->
 <!--   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +35,34 @@
 </head>
 
 <body>
+    
+    <div class="col-md-1"> </div>
+    <div class="col-md-4" id="leftCol"> 
+        <p>&nbsp;</p>
+        <p>&nbsp;</p> 
+        <img src="/static/sanfrancisco.png" style="width: 100%; "> 
+        <p>
+            &nbsp;
+        </p>
+
+    </div>
+
+    <div class="col-md-7" id="rightCol"> 
+        <h1 id="title">Memphis Taxis</h1>
+        <p>&nbsp;</p>
+        <p>This page contains information about taxi and cab companies in Memphis, Tennessee.
+        </p>
+
+        <p>Not endorsed by any of the companies listed, or the city of Memphis.</p>
+        <div id="memphis">
+            <p>&nbsp;</p>
+<!--            <p> <a id="mp" class="button" href="www.yellowcabofmemphis.com">Memphis Transportation</a> -->
+                                <button id="mp" type="submit" name="Memphis Transportation">Memphis Transportation</button>
+            </p>
+        </div>
+    </div>
   <!-- Page Content -->
+<!--
   <div class="container top-margin">
 
     <div class="row">
@@ -46,13 +77,14 @@
 
         <p>Not endorsed by any of the companies listed, or the city of Memphis.</p>
         <div id="memphis">
-          <p><!-- <a id="mp" href="www.yellowcabofmemphis.com">Memphis Transportation</a> -->
+          <p> <a id="mp" href="www.yellowcabofmemphis.com">Memphis Transportation</a> 
             <button id="mp" type="submit" name="Memphis Transportation">Memphis Transportation</button>
           </p>
         </div>
       </div>
 
   </div>
+-->
   <!-- /.container -->
 
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
