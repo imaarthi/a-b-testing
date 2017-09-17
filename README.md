@@ -18,9 +18,10 @@ performed better.
 
 # Running the flask server
 
-## Running locally
+## Running and testing it locally
 
 ### Method 1:
+ On your terminal, run the following command.
  export FLASK_APP=app.py
  flask run
 
