@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="../main.css">
+
   <script type="text/javascript">      
       var timerStart = Date.now();
       console.log('Page Load:' + timerStart)
@@ -13,6 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
+    <link rel="stylesheet" href="../main.css">
 
   <title>Find Taxis online</title>
 
@@ -20,12 +21,15 @@
 </head>
 
 <body>
-    
+    <h1 id="title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;California Taxis</h1>
+        <hr>
     <div class="col-md-1"> </div>
     <div class="col-md-4" id="leftCol"> 
         <p>&nbsp;</p>
         <p>&nbsp;</p> 
-        <img src="/static/sanfrancisco.png" style="width: 100%; "> 
+        <!--img src="/static/memphis.png" style="width: 100%; "--> 
+                <!--img src="/static/memphis.png" style="width: 100%; "-->
+        <!--TODO: Add new image here --> 
         <p>
             &nbsp;
         </p>
@@ -33,7 +37,34 @@
     </div>
 
     <div class="col-md-7" id="rightCol"> 
-        <h1 id="title">Memphis Taxis</h1>
+        
+        <p>&nbsp;</p>
+        <p>This page contains information about taxi and cab companies in San Francisco, CA
+        </p>
+
+        <p>Not endorsed by any of the companies listed, or the city of SF.</p>
+        <div id="memphis">
+            <p>&nbsp;</p>
+
+                <button id="mp1" type="submit" name="SF Transportation">SF Transportation</button>
+              
+            </p>
+        </div>
+    </div>
+    <hr>
+     <div class="col-md-1"> </div>
+    <div class="col-md-4" id="leftCol"> 
+        <p>&nbsp;</p>
+        <p>&nbsp;</p> 
+        <!--img src="/static/memphis.png" style="width: 100%; "-->
+        <!--TODO: Add new image here --> 
+        <p>
+            &nbsp;
+        </p>
+
+    </div>
+    <div class="col-md-7" id="rightCol"> 
+        
         <p>&nbsp;</p>
         <p>This page contains information about taxi and cab companies in Memphis, Tennessee.
         </p>
@@ -41,10 +72,11 @@
         <p>Not endorsed by any of the companies listed, or the city of Memphis.</p>
         <div id="memphis">
             <p>&nbsp;</p>
-                  <button id="mp" type="submit" name="Memphis Transportation">Memphis Transportation</button>
+                <button id="mp2" type="submit" name="SF airport Transportation">Airport Transportation</button>
             </p>
         </div>
     </div>
+
 
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
   <script>
@@ -52,14 +84,29 @@
         $(document).ready(function() {
           timeLoaded =  Date.now();
           console.log('Page Load:' + timeLoaded)
+          sendData(timeLoaded, 0)
         });
 
-      $("#mp").on("click", function(d) {
+      $("#mp1").on("click", function(d) {
             // Retrieve the object from storage
             var clickTime = Date.now()
+            var clickObjectID = 'mp1'
             console.log('Click Time:' + clickTime)
+            sendData(timeLoaded, clickTime, clickObjectID)
+      })
 
-            var dataObj = { 'version': 'B', 'pageLoadTime': timeLoaded , 'clickTime': clickTime };
+
+      $("#mp2").on("click", function(d) {
+            // Retrieve the object from storage
+            var clickTime = Date.now()
+            var clickObjectID = 'mp2'
+            console.log('Click Time:' + clickTime)
+            sendData(timeLoaded, clickTime, clickObjectID)
+      })
+
+
+      function sendData(timeLoaded, clickTime, clickObjectID){
+            var dataObj = { 'version': 'B', 'pageLoadTime': timeLoaded , 'clickTime': clickTime , 'clickObjectID': clickObjectID};
             console.log(JSON.stringify(dataObj))
              $.ajax({
                  type: 'POST',
@@ -74,8 +121,7 @@
                       $(this).html("error!");
                   }
             });
-            
-      })
+      }
       
    </script>
 
