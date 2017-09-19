@@ -45,7 +45,9 @@ def get_data():
     page_load_time_formatted = datetime.datetime.fromtimestamp(
         page_load_time).strftime('%Y-%m-%d %H:%M:%S.%f')
 
-    print(version, page_load_time_formatted, click_time_formatted)
+    click_obj_id = json['clickObjectID']
+
+    print(version, page_load_time_formatted, click_time_formatted, click_obj_id)
     # write to csv file
     with open('./ab_test.csv', 'a') as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
