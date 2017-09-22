@@ -1,25 +1,32 @@
-from flask import Flask, render_template
-from flask import request
 import sys
 import random
 import csv
 import os
-import datetime
 
+from flask import Flask, render_template
+from flask import request
 
+#import datetime
+# DO not write pyc files.
 sys.dont_write_bytecode = True
-with open('./ab_test.csv', 'w') as csv_file:
+
+# ab_test.csv which could be used for testing locally.
+# After hosting in heroku, this file will no more be used.
+# As Heroku file system is not persistent and it removes
+# any file which is created after hosting.
+csv_file_ab = './ab_test.csv'
+with open(csv_file_ab, 'w') as csv_file:
     writer = csv.writer(csv_file, delimiter=',')
     writer.writerow([
-        'version', 'pageLoadTime', 'clickTime'])
-print('version', 'pageLoadTime', 'clickTime')
+        'version', 'pageLoadTime', 'clickTime', 'clickHTMLElementId'])
 
-app = Flask(__name__)
+print('version', 'pageLoadTime', 'clickTime', 'clickHTMLElementId')
+
+# Main Flask app server
+app = Flask(__name__) # Simple python Flask server
 app.config['DEBUG'] = True
 
-
-# Simple python Flask server
-
+# This is the root endpoint.
 @app.route('/', methods=['GET'])
 def root():
     probability = random.uniform(0, 1)
@@ -28,34 +35,43 @@ def root():
     else:
         return render_template('B.html')
 
-
+# data endpoint
 @app.route('/data', methods=['GET', 'POST'])
 def get_data():
     json = request.get_json()
     version = json['version']
-
-    # convert epoch timestamps to formatted version
-    click_time = json['clickTime'] / 1000.0
-    if click_time != 0:
-        click_time_formatted = datetime.datetime.fromtimestamp(
-            click_time).strftime('%Y-%m-%d %H:%M:%S.%f')
-    else:
-        click_time_formatted = click_time
-    page_load_time = json['pageLoadTime'] / 1000.0
-    page_load_time_formatted = datetime.datetime.fromtimestamp(
-        page_load_time).strftime('%Y-%m-%d %H:%M:%S.%f')
-
+    click_time = json['clickTime']
+    page_load_time = json['pageLoadTime']
     click_obj_id = json['clickObjectID']
 
-    print(version, page_load_time_formatted, click_time_formatted, click_obj_id)
+    # THIS PIECE OF CODE COULD BE USED TO CONVERT TO READ-ABLE TIME
+    # BUT HAVING IT IN UNIX TIME MAKES IT EASIER TO
+    # COMPARE WITH EYE_TRACKING.
+
+    # convert epoch timestamps to formatted version
+    # click_time = json['clickTime'] / 1000.0
+    # if click_time != 0:
+    #     click_time_formatted = datetime.datetime.fromtimestamp(
+    #         click_time).strftime('%Y-%m-%d %H:%M:%S.%f')
+    # else:
+    #     click_time_formatted = click_time
+    # page_load_time = json['pageLoadTime'] / 1000.0
+    # page_load_time_formatted = datetime.datetime.fromtimestamp(
+    #     page_load_time).strftime('%Y-%m-%d %H:%M:%S.%f')
+
+    print('AB_TESTING:' + version + ',' + page_load_time + ',' + click_time + ',' +click_obj_id)
+
     # write to csv file
-    with open('./ab_test.csv', 'a') as csv_file:
+    with open(csv_file_ab, 'a') as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
         writer.writerow([
-            version, page_load_time_formatted, click_time_formatted])
+            version, page_load_time_formatted, click_time_formatted, click_obj_id])
     return "OK"
 
 
+# DO NOT CHANGE ANYTHING HERE
+# You might run into issues changing things here
+# based on how heroku treats host and port
 if __name__ == '__main__':
     app.debug = True
     port = int(os.environ.get('PORT', 5000))

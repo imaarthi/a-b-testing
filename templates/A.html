@@ -6,6 +6,7 @@
   <script type="text/javascript">      
       var timerStart = Date.now();
       console.log('Page Load:' + timerStart)
+      var cook = document.cookie;
   </script>
 
   <meta charset="utf-8">
@@ -89,7 +90,7 @@
             var clickTime = Date.now()
             var clickObjectID = 'mp1'
             console.log('Click Time:' + clickTime)
-            sendData(timeLoaded, clickTime, clickObjectID)
+            sendData(timeLoaded, clickTime, clickObjectID, cook)
       })
 
 
@@ -98,12 +99,12 @@
             var clickTime = Date.now()
             var clickObjectID = 'mp2'
             console.log('Click Time:' + clickTime)
-            sendData(timeLoaded, clickTime, clickObjectID)
+            sendData(timeLoaded, clickTime, clickObjectID, cook)
       })
 
 
-      function sendData(timeLoaded, clickTime, clickObjectID){
-            var dataObj = { 'version': 'A', 'pageLoadTime': timeLoaded , 'clickTime': clickTime , 'clickObjectID': clickObjectID};
+      function sendData(timeLoaded, clickTime, clickObjectID, cook){
+            var dataObj = { 'version': 'A', 'pageLoadTime': timeLoaded , 'clickTime': clickTime , 'clickObjectID': clickObjectID, 'user' :cook};
             console.log(JSON.stringify(dataObj))
              $.ajax({
                  type: 'POST',
