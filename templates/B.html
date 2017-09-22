@@ -45,7 +45,7 @@
         <div id="memphis">
             <p>&nbsp;</p>
 
-                <button id="ca1" type="submit" name="Airport Transportation">SFO Transportation</button>
+                <button id="ca1" type="button" class="btn btn-primary" type="submit" name="Airport Transportation">SFO Transportation</button>
 
             </p>
         </div>
@@ -70,7 +70,7 @@
         <p>Not endorsed by any of the companies listed, or the city of SF.</p>
         <div id="sf">
             <p>&nbsp;</p>
-                <button id="ca2" type="submit" name="SanFrancisco Transportation">SF Transportation</button>
+                <button id="ca2" type="button" class="btn btn-primary" type="submit" name="SanFrancisco Transportation">SF Transportation</button>
             </p>
         </div>
     </div>
@@ -85,7 +85,7 @@
           //sendData(timeLoaded, 0)
         });
 
-      $("#mp1").on("click", function(d) {
+      $("#ca1").on("click", function(d) {
             // Retrieve the object from storage
             var clickTime = Date.now()
             var clickObjectID = 'ca1'
@@ -94,7 +94,7 @@
       })
 
 
-      $("#mp2").on("click", function(d) {
+      $("#ca2").on("click", function(d) {
             // Retrieve the object from storage
             var clickTime = Date.now()
             var clickObjectID = 'ca2'

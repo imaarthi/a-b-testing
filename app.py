@@ -43,7 +43,7 @@ def get_data():
     version = json['version']
     click_time = json['clickTime']
     page_load_time = json['pageLoadTime']
-    click_obj_id = json['clickObjectID']
+    click_obj_id = json['HtmlElementID']
 
     # THIS PIECE OF CODE COULD BE USED TO CONVERT TO READ-ABLE TIME
     # BUT HAVING IT IN UNIX TIME MAKES IT EASIER TO
@@ -66,7 +66,7 @@ def get_data():
     with open(csv_file_ab, 'a') as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
         writer.writerow([
-            version, page_load_time_formatted, click_time_formatted, click_obj_id])
+            version, page_load_time, click_time, click_obj_id])
     return "OK"
 
 
