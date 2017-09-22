@@ -44,7 +44,7 @@ def get_data():
     click_time = json['clickTime']
     page_load_time = json['pageLoadTime']
     click_obj_id = json['HtmlElementID']
-
+    unique_session_id = json['UniqueSession']
     # THIS PIECE OF CODE COULD BE USED TO CONVERT TO READ-ABLE TIME
     # BUT HAVING IT IN UNIX TIME MAKES IT EASIER TO
     # COMPARE WITH EYE_TRACKING.
@@ -60,13 +60,13 @@ def get_data():
     # page_load_time_formatted = datetime.datetime.fromtimestamp(
     #     page_load_time).strftime('%Y-%m-%d %H:%M:%S.%f')
 
-    print('AB_TESTING:', version , page_load_time , click_time , click_obj_id)
+    print('AB_TESTING:', version , page_load_time , click_time , click_obj_id, unique_session_id)
 
     # write to csv file
     with open(csv_file_ab, 'a') as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
         writer.writerow([
-            version, page_load_time, click_time, click_obj_id])
+            version, page_load_time, click_time, click_obj_id, unique_session_id])
     return "OK"
 
 

@@ -104,7 +104,7 @@
 
 
       function sendData(timeLoaded, clickTime, clickObjectID, cook){
-            var dataObj = { 'version': 'B', 'pageLoadTime': timeLoaded , 'clickTime': clickTime , 'HtmlElementID': clickObjectID, 'Unique Session' :uniq_session};
+            var dataObj = { 'version': 'B', 'pageLoadTime': timeLoaded , 'clickTime': clickTime , 'HtmlElementID': clickObjectID, 'UniqueSession' :uniq_session};
             console.log(JSON.stringify(dataObj))
              $.ajax({
                  type: 'POST',
