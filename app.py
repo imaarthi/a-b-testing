@@ -25,6 +25,7 @@ print('version', 'pageLoadTime', 'clickTime', 'clickHTMLElementId')
 # Main Flask app server
 app = Flask(__name__) # Simple python Flask server
 app.config['DEBUG'] = True
+app.static_folder = 'static'
 
 # This is the root endpoint.
 @app.route('/', methods=['GET'])
@@ -59,7 +60,7 @@ def get_data():
     # page_load_time_formatted = datetime.datetime.fromtimestamp(
     #     page_load_time).strftime('%Y-%m-%d %H:%M:%S.%f')
 
-    print('AB_TESTING:' + version + ',' + page_load_time + ',' + click_time + ',' +click_obj_id)
+    print('AB_TESTING:', version , page_load_time , click_time , click_obj_id)
 
     # write to csv file
     with open(csv_file_ab, 'a') as csv_file:
