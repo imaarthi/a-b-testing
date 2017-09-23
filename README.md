@@ -1,5 +1,8 @@
 # A/B Testing
 
+# NOTE: This file has some general information. Please read the
+Mac/Windows specific readme file for specific instructions.
+
 ## Overview
 
 A/B testing is a user research technique, which is used to test
@@ -11,62 +14,35 @@ calculated based on "conversion rate".
 ## What does this project do?
 
 This project does simple A/B testing, of 2 versions of a website.
-
 The metrics collected could then be used to see which version 
-among the baseline or variant 
-performed better.
+among the baseline(A) or variant(B) performed better.
+
 
 # Running the flask server
 
-## Running and testing it locally
+These steps are used for running and testing locally.
+## Running and testing it locally.
+Following command to be run on Mac OS terminal or WINDOWS powershell.
 
-### Method 1:
- On your terminal, run the following command.
- export FLASK_APP=app.py
- flask run
-
-### Method 2:
  python app.py
 
-
-#Hosting on Heroku
- In order to host this on heroku, follow the following steps.
-
-## Ensure heroku CLI is installed
-
-  STEPS:
-  Run the following on iterm/terminal.
-  1. Install brew if not installed - 
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-  2. Install heroku toolkit. CLI is part of toolkit. 
-  brew install heroku-toolbelt
-
-## Following are must.
-### Procfile - this is the file heroku looks in your home directory
- It should contain the command to start your web app.
-
- For example, if you run your web app locally as
- 'python app.py'
- this file should contain 
- web: python app.py
-
- The initial command 'web' is specific to heroku.
- Otherwise it does not know that it should follow
- http protocol for your app.
-
-### requirements.txt
- Heroku looks for this in home directory.
- Add all dependencies here.
-
-## Full details at https://devcenter.heroku.com/articles/deploying-python
 
 ## Sample Output while testing locally:
 
 Creates output file of the following format.
 
-Aarthis-iMac:a-b-testing aarthi$ cat ab_testing.csv
-Version,pageLoadTime,clickTime
-B,2017-09-06 19:50:05.202000,2017-09-06 19:50:06.484000
-A,2017-09-06 19:50:08.579000,2017-09-06 19:50:09.284000
+Aarthis-iMac:a-b-testing aarthi$ cat ab_test.csv
+version,pageLoadTime,clickTime,clickHTMLElementId,UniqueSessionID
+B,1506176905681,1506176908590,ca1,1506176905390
+B,1506176905681,1506176909309,ca2,1506176905390
+A,1506176912336,1506176914382,mp2,1506176912222
+
+## Sample output after hosting in heroku.
+2017-09-22T04:15:05.318219+00:00 app[web.1]: AB_TESTING: A 1506053696735 1506053705304 mp1 1506053696475
+2017-09-22T04:15:07.288130+00:00 app[web.1]: AB_TESTING: A 1506053696735 1506053707279 mp2 1506053696475
+2017-09-22T04:15:08.353015+00:00 app[web.1]: AB_TESTING: A 1506053696735 1506053708343 mp2 1506053696475
+2017-09-22T04:15:09.444328+00:00 app[web.1]: AB_TESTING: A 1506053696735 1506053709431 mp1 1506053696475
+2017-09-22T04:15:14.822574+00:00 app[web.1]: AB_TESTING: B 1506053712624 1506053714784 ca1 1506053712526
+2017-09-22T04:15:16.682459+00:00 app[web.1]: AB_TESTING: B 1506053712624 1506053716671 ca2 1506053712526
+2017-09-22T04:15:17.769221+00:00 app[web.1]: AB_TESTING: B 1506053712624 1506053717759 ca1 1506053712526
 

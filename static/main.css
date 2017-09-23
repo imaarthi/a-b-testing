@@ -1,33 +1,9 @@
-.equal {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-}
-
-
-body {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 80px;
-    margin-bottom: 65px;
-    width: 850px;
-}
 
 body img {
-    border-radius: 10px;
-    height: 250px;
-}
-
-.button {
-    padding: 10px; 
-    border-radius: 15px; 
-    color: black; 
-    border: 1px solid black; 
-    box-shadow: 1px 1px 0px 0px; 
-}
-
-.button:hover {
-    color: white; 
-    background-color: black; 
+    height:250px;
+    width:350px;
+    margin-left: 25px;
+    margin-right:25px;
+    margin-top:20px;
+    margin-bottom:20px;
 }

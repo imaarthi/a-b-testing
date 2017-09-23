@@ -18,9 +18,9 @@ csv_file_ab = './ab_test.csv'
 with open(csv_file_ab, 'w') as csv_file:
     writer = csv.writer(csv_file, delimiter=',')
     writer.writerow([
-        'version', 'pageLoadTime', 'clickTime', 'clickHTMLElementId'])
+        'version', 'pageLoadTime', 'clickTime', 'clickHTMLElementId','UniqueSessionID'])
 
-print('version', 'pageLoadTime', 'clickTime', 'clickHTMLElementId')
+print('version', 'pageLoadTime', 'clickTime', 'clickHTMLElementId','UniqueSession')
 
 # Main Flask app server
 app = Flask(__name__) # Simple python Flask server
