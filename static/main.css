@@ -1,9 +1,21 @@
+header {
+	padding-left: 40px;
+	padding-top: 20px;
+}
 
-body img {
-    height:250px;
-    width:350px;
-    margin-left: 25px;
-    margin-right:25px;
-    margin-top:20px;
-    margin-bottom:20px;
+.vendor-wrapper {
+	justify-content: left;
+	padding-left: 40px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.vendor-photo {
+	max-width: : 200px;
+	max-height: 150px;
+	padding-right: 20px;
+}
+
+.vendor-book-button {
+	font-size: 2em;
 }
