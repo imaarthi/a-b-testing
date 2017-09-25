@@ -1,128 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <script type="text/javascript">      
+        var timerStart = Date.now();
+        console.log('Page Load:' + timerStart)
+        var uniq_session = timerStart;
+    </script>
 
-<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/main.css" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-  <script type="text/javascript">      
-      var timerStart = Date.now();
-      console.log('Page Load:' + timerStart)
-      var uniq_session = timerStart;
-  </script>
+    <title>Find San Francisco Taxis online</title>
+  </head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" >
-
-  <title>Find Taxis online</title>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-
-<body>
-    <h1 id="title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sanfrancisco Taxis</h1>
-        <hr>
-    <div class="col-md-1"> </div>
-    <div class="col-md-4" id="leftCol">
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <img src="/static/sanfrancisco.png">
-        <p>
-            &nbsp;
-        </p>
-
+  <body>
+    <header>
+      <h1>San Francisco Taxis</h1>
+      <p>This page contains information about taxi and cab companies in San Francisco, CA.</p>
+      <p>Not endorsed by any of the companies listed, or the city of San Francisco.</p>
+    </header>
+    
+    <div class="vendor-wrapper">
+      <img src="../static/sanFrancisco.png" class="vendor-photo" />
+      <button class="vendor-book-button" id="mp1">Reserve with First Taxi Company</button>
     </div>
 
-    <div class="col-md-7" id="rightCol">
-
-        <p>&nbsp;</p>
-        <p>This page contains information about taxi and cab companies in SF, CA.
-        </p>
-
-        <p>Not endorsed by any of the companies listed, or the city of sanfrancisco.</p>
-        <div id="memphis">
-            <p>&nbsp;</p>
-
-                <button id="ca1" type="button" class="btn btn-primary" type="submit" name="Airport Transportation">SFO Transportation</button>
-
-            </p>
-        </div>
-    </div>
-    <hr>
-     <div class="col-md-1"> </div>
-    <div class="col-md-4" id="leftCol">
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <img src="../static/sanfrancisco2.png">
-        <p>
-            &nbsp;
-        </p>
-
-    </div>
-    <div class="col-md-7" id="rightCol">
-
-        <p>&nbsp;</p>
-        <p>This page contains information about taxi and cab companies in SF, CA.
-        </p>
-
-        <p>Not endorsed by any of the companies listed, or the city of SF.</p>
-        <div id="sf">
-            <p>&nbsp;</p>
-                <button id="ca2" type="button" class="btn btn-primary" type="submit" name="SanFrancisco Transportation">SF Transportation</button>
-            </p>
-        </div>
+    <div class="vendor-wrapper">
+      <img src="../static/sanfrancisco2.png" class="vendor-photo" />
+      <button class="vendor-book-button" id="mp2">Reserve with Second Taxi Company</button>
     </div>
 
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>
+        var timeLoaded = Date.now()
+          $(document).ready(function() {
+            timeLoaded =  Date.now();
+            console.log('Page Load:' + timeLoaded)
+            //sendData(timeLoaded, 0)
+          });
 
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script>
-      var timeLoaded = Date.now()
-        $(document).ready(function() {
-          timeLoaded =  Date.now();
-          console.log('Page Load:' + timeLoaded)
-          //sendData(timeLoaded, 0)
-        });
-
-      $("#ca1").on("click", function(d) {
-            // Retrieve the object from storage
-            var clickTime = Date.now()
-            var clickObjectID = 'ca1'
-            console.log('Click Time:' + clickTime)
-            sendData(timeLoaded, clickTime, clickObjectID, uniq_session)
-      })
-
-
-      $("#ca2").on("click", function(d) {
-            // Retrieve the object from storage
-            var clickTime = Date.now()
-            var clickObjectID = 'ca2'
-            console.log('Click Time:' + clickTime)
-            sendData(timeLoaded, clickTime, clickObjectID, uniq_session)
-      })
+        $("#ca1").on("click", function(d) {
+              // Retrieve the object from storage
+              var clickTime = Date.now()
+              var clickObjectID = 'ca1'
+              console.log('Click Time:' + clickTime)
+              sendData(timeLoaded, clickTime, clickObjectID, uniq_session)
+        })
 
 
-      function sendData(timeLoaded, clickTime, clickObjectID, cook){
-            var dataObj = { 'version': 'B', 'pageLoadTime': timeLoaded , 'clickTime': clickTime , 'HtmlElementID': clickObjectID, 'UniqueSession' :uniq_session};
-            console.log(JSON.stringify(dataObj))
-             $.ajax({
-                 type: 'POST',
-                  url: '/data',
-                  dataType: 'json',
-                  contentType: 'application/json; charset=utf-8',
-                  data: JSON.stringify(dataObj),
-                  success: function(callback) {
-                      console.log(callback);
-                  },
-                  error: function() {
-                      $(this).html("error!");
-                  }
-            });
-      }
-      
-   </script>
+        $("#ca2").on("click", function(d) {
+              // Retrieve the object from storage
+              var clickTime = Date.now()
+              var clickObjectID = 'ca2'
+              console.log('Click Time:' + clickTime)
+              sendData(timeLoaded, clickTime, clickObjectID, uniq_session)
+        })
 
-</body>
 
+        function sendData(timeLoaded, clickTime, clickObjectID, cook){
+              var dataObj = { 'version': 'B', 'pageLoadTime': timeLoaded , 'clickTime': clickTime , 'HtmlElementID': clickObjectID, 'UniqueSession' :uniq_session};
+              console.log(JSON.stringify(dataObj))
+               $.ajax({
+                   type: 'POST',
+                    url: '/data',
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(dataObj),
+                    success: function(callback) {
+                        console.log(callback);
+                    },
+                    error: function() {
+                        $(this).html("error!");
+                    }
+              });
+        }
+        
+     </script>
+  </body>
 </html>
