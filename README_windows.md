@@ -30,8 +30,9 @@
   Creating app... done, ⬢ <randomappname>
   https://<randomappname>.herokuapp.com/ | https://git.heroku.com/<randomappname>.git
 
-8. git push heroku master
+8.  git commit -am "<Commit message>"
 
+9.   git push heroku master
   For the first time, it might take some time. Subsequent runs would be little faster.
   At the very end, it would output a heroku app link, which can be opened in a browser.
 
@@ -40,7 +41,7 @@
   stencil code and we want you to run commands from this step(step 8), to push/host your
   changes.
 
-9. heroku open
+10. heroku open
   This should open the sample app in chrome automatically. If it does not open, you can
   try opening the link manually.
 
