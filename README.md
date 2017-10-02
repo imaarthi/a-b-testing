@@ -17,15 +17,14 @@ This project does simple A/B testing, of 2 versions of a website.
 The metrics collected could then be used to see which version 
 among the baseline(A) or variant(B) performed better.
 
-
 # Running the flask server
 
 These steps are used for running and testing locally.
 ## Running and testing it locally.
 Following command to be run on Mac OS terminal or WINDOWS powershell.
 
+ pip install -r requirements.txt
  python app.py
-
 
 ## Sample Output while testing locally:
 

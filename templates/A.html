@@ -10,7 +10,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../static/main.css">
+
+    <!-- TODO: Feel free to modify anything inside main.css-->
+    <link rel="stylesheet" href="/static/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
     <title>Find Memphis Taxis online</title>
@@ -18,11 +20,20 @@
 
   <body>
     <header>
-      <h1>Memphis Taxis</h1>
+      <h1>Memphis Taxis </h1>
       <p>This page contains information about taxi and cab companies in Memphis, Tennessee.</p>
       <p>Not endorsed by any of the companies listed, or the city of Memphis.</p>
     </header>
-    
+
+    <!--
+    TODO: Feel free to modify image, change layouts, appearance etc anything.
+    Remember if you add any new buttons, you need to update the javascript file, for
+    corresponding button id, so that clicks of that button could be logged.
+
+    Easiest thing is to have just the two buttons we already have and try to play around
+    with layouts of it.
+    -->
+
     <div class="vendor-wrapper">
       <img src="/static/memphis.png" class="vendor-photo" />
       <button class="vendor-book-button btn btn-primary" type="submit" id="mp1">Reserve with Memphis Airport
@@ -48,6 +59,7 @@
               var clickObjectID = 'mp1'
               console.log('Click Time:' + clickTime)
               sendData(timeLoaded, clickTime, clickObjectID, uniq_session)
+              // TODO: Feel free to make this point to different site
               window.location.href = "http://www.yellowcabofmemphis.com/"
 
         })
@@ -59,6 +71,7 @@
               var clickObjectID = 'mp2'
               console.log('Click Time:' + clickTime)
               sendData(timeLoaded, clickTime, clickObjectID, uniq_session)
+              // TODO: Feel free to make this point to different site
               window.location.href = "https://www.ridecharge.com/s/tn-memphis/taxi-sedan-limo-shuttle"
         })
 

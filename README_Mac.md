@@ -42,8 +42,8 @@
     At the very end, it would output a heroku app link, which can be opened in a browser.
 
     For the first time, you will just create app with stencil code provided in Step 4.
-    For the purpose of A/B testing assignment, we want you to modify B.html in this
-    stencil code and we want you to run commands from this step(step 8), to push/host your
+    For the purpose of A/B testing assignment, we want you to modify A.html and B.html in
+    'templates' folder of stencil code and we want you to run commands from this step(step 8), to push/host your
     changes.
 
 10. heroku open
