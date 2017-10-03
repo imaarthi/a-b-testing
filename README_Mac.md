@@ -10,44 +10,62 @@
 2.   We have to install heroku CLI(Command Line Interface).
      As CLI is part of toolkit, we will now install toolkit.
 
-      Run the following on iterm/terminal.
+      Run the following on iterm/terminal.[Only if brew is not
+      installed on your Mac already]
 
-     Install brew if not installed -
      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-     Install heroku toolkit. CLI is part of toolkit.
+     Brew takes atleast 5-10minutes to install for the first time.
 
-     brew install heroku-toolbelt
+     Once brew is installed,
+     run the following on iterm/terminal to install heroku toolkit.
+     CLI is part of toolkit.
+
+      brew install heroku-toolbelt
 
 3. Open a terminal on Mac.
 
 4. Goto a folder where you have to download your a-b-testing folder.
 
-5. cd a-b-testing
+5. Type in the following commands one after another.
 
-6. heroku login
+        cd a-b-testing
+        heroku login
 
-   Use the email/password you used for signing up in step 1 above.
+    Use the email/password you used for signing up in step 1 above.
 
-7. heroku create
+7. Type in the following commands.
+
+        heroku create
   This should output something similar to this.
 
   Creating app... done, ⬢ <randomappname>
   https://<randomappname>.herokuapp.com/ | https://git.heroku.com/<randomappname>.git
 
-8.  git commit -am "<Commit message>"
+8.  To update the changes you make each time to A.html or B.html, please use
+   the following commands one by one.
 
-9.   git push heroku master
-    For the first time, it might take some time. Subsequent runs would be little faster.
-    At the very end, it would output a heroku app link, which can be opened in a browser.
+        git commit -am "Commit message"
 
-    For the first time, you will just create app with stencil code provided in Step 4.
-    For the purpose of A/B testing assignment, we want you to modify A.html and B.html in
-    'templates' folder of stencil code and we want you to run commands from this step(step 8), to push/host your
+        git push heroku master
+    For the first time, pushing might take some time.
+    Subsequent runs would be little faster.
+    At the very end, it would output a heroku app link,
+    which can be opened in a browser.
+
+    For the first time, you will just create app with stencil
+    code provided in Step 4.
+    For the purpose of A/B testing assignment, we want you to
+    modify A.html and B.html in
+    'templates' folder of stencil code and we want you to run
+    commands from this step(step 8), to push/host your
     changes.
 
-10. heroku open
-    This should open the sample app in chrome automatically. If it does not open, you can
+10. Type in the following commands.
+    heroku open
+    
+    This should open the sample app in chrome automatically.
+    If it does not open, you can
     try opening the link manually.
 
 For any doubts or to debug issues about heroku, you can read more here..
