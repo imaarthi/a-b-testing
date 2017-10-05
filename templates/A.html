@@ -9,7 +9,7 @@
         var cookie = getCookie('uid');
         console.log('cookie:' + cookie)
         if(cookie == '' || cookie == null) {
-          var uid = uuid.v4();
+          var uid = makeid;
           console.log('uid:' + uid)
           setCookie('uid', uid,  40)
         }
@@ -18,6 +18,15 @@
           d.setTime(d.getTime() + (exdays*24*60*60*1000));
           var expires = "expires="+ d.toUTCString();
           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        function makeid() {
+          var text = "";
+          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+          for (var i = 0; i < 5; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+          return text;
         }
 
         function getCookie(cname) {
