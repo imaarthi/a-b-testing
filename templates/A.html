@@ -14,6 +14,8 @@
           var uid = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 12);
           console.log('uid:' + uid)
           setCookie('uid', uid,  40)
+          cookie = getCookie('uid');
+          uniq_session = cookie;
         }
         function setCookie(cname, cvalue, exdays) {
           var d = new Date();
