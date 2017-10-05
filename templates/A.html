@@ -8,6 +8,8 @@
 
         var cookie = getCookie('uid');
         console.log('version A: cookie:' + cookie)
+        var uniq_session = cookie;
+
         if(cookie == '' || cookie == null) {
           var uid = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 12);
           console.log('uid:' + uid)
