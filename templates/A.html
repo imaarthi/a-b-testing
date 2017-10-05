@@ -9,7 +9,7 @@
         var cookie = getCookie('uid');
         console.log('cookie:' + cookie)
         if(cookie == '' || cookie == null) {
-          var uid = makeid;
+          var uid = makeId();
           console.log('uid:' + uid)
           setCookie('uid', uid,  40)
         }
@@ -19,7 +19,7 @@
           var expires = "expires="+ d.toUTCString();
           document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
-        function makeid() {
+        function makeId() {
           var text = "";
           var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
