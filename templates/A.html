@@ -7,7 +7,7 @@
         var uniq_session = timerStart;
 
         var cookie = getCookie('uid');
-        console.log('cookie:' + cookie)
+        console.log('version A: cookie:' + cookie)
         if(cookie == '' || cookie == null) {
           var uid = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 12);
           console.log('uid:' + uid)
