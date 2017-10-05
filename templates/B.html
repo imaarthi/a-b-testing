@@ -72,15 +72,36 @@
 
     <div class="vendor-wrapper">
         <!--TODO: Change the image -->
-      <img src="/static/sanfrancisco.png" class="vendor-photo" />
+      <img src="/static/memphis.png" class="vendor-photo" />
 
       <button class="vendor-book-button btn btn-primary" type="submit" id="mp1">TODO: Change me</button>
+       <p>Safe, Reliable Taxi Services from Yellow Cab and Checker Cab are available
+              in the Memphis Metro area 24 hours a day.</p>
+    </div>
 
     <div class="vendor-wrapper">
         <!--TODO: Change the image -->
-      <img src="/static/memphis.png" class="vendor-photo" />
+      <img src="/static/memphis2.png" class="vendor-photo" />
       <button class="vendor-book-button btn btn-primary" type="submit" id="mp2">TODO: Change me</button>
+       <p>Our drivers are the most professional drivers in the industry. Our drivers
+              are licensed and required to successfully complete a formal training.</p>
     </div>
+
+     <div class="vendor-wrapper">
+    <img src="/static/uber.png" class="vendor-photo" />
+   
+    <button class="vendor-book-button btn btn-primary" type="submit" id="mp3">TODO: Change me</button>
+     <p> We are so much cheaper than taxis..! </p>
+    </div>
+
+    <div class="vendor-wrapper">
+      <img src="/static/premiere.png" class="vendor-photo" />
+      <button class="vendor-book-button btn btn-primary" type="submit" id="mp4">TODO: Change me</button>
+       <p>Our goal is to efficiently
+              transport our passengers in a safe, polite and timely manner at a fair
+              price.</p>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>
@@ -110,6 +131,26 @@
               sendData(timeLoaded, clickTime, clickObjectID, uniq_session)
               // TODO: Feel free to make this point to different site
               window.location.href = "https://www.ridecharge.com/s/tn-memphis/taxi-sedan-limo-shuttle"
+        })
+
+          $("#mp3").on("click", function(d) {
+              // Retrieve the object from storage
+              var clickTime = Date.now()
+              var clickObjectID = 'mp3'
+              console.log('Click Time:' + clickTime)
+              sendData(timeLoaded, clickTime, clickObjectID, uniq_session)
+              // TODO: Feel free to make this point to different site
+              window.location.href = "https://www.uber.com/cities/memphis/"
+        })
+
+            $("#mp4").on("click", function(d) {
+              // Retrieve the object from storage
+              var clickTime = Date.now()
+              var clickObjectID = 'mp4'
+              console.log('Click Time:' + clickTime)
+              sendData(timeLoaded, clickTime, clickObjectID, uniq_session)
+              // TODO: Feel free to make this point to different site
+              window.location.href = "https://premierofmemphis.com/contact-us/"
         })
 
 
