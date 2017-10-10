@@ -1,7 +1,7 @@
 # A/B Testing
 
 
-### NOTE: This file has some general information. Please read the Mac/Windows specific readme file for specific instructions.
+## NOTE: This file has some general information. Please read the Mac/Windows specific readme file for specific instructions.
 
 
 ## Overview
@@ -20,28 +20,7 @@ The metrics collected could then be used to see which version
 among the baseline(A) or variant(B) performed better.
 
 
-# Running the flask server
-
-These steps are used for running and testing locally.
-
-
-## Running and testing it locally.
-Following command to be run on Mac OS terminal or WINDOWS powershell.
-
- pip install -r requirements.txt
- python app.py
-
-
-## Sample Output while testing locally:
-
-Creates output file of the following format.
-
-Aarthis-iMac:a-b-testing aarthi$ cat ab_test.csv
-version,pageLoadTime,clickTime,clickHTMLElementId,UniqueSessionID
-B,1506176905681,1506176908590,ca1,1506176905390
-B,1506176905681,1506176909309,ca2,1506176905390
-A,1506176912336,1506176914382,mp2,1506176912222
-
+## For detailed instructions on how to set it up, please see the README_Mac.md or README_windows.md in this folder.
 
 ## Sample output after hosting in heroku.
 2017-09-22T04:15:05.318219+00:00 app[web.1]: AB_TESTING: A 1506053696735 1506053705304 mp1 1506053696475
