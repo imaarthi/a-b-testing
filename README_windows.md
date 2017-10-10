@@ -35,8 +35,9 @@
  To update the changes you make each time to A.html or B.html, please use
    the following commands one by one.
 
-    git commit -am "<Commit message>"
-    git push heroku master
+        git add .
+        git commit -am "<Commit message>"
+        git push heroku master
 
   For the first time, pushing might take some time.
   Subsequent runs would be little faster.
